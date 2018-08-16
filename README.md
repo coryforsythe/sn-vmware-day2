@@ -9,10 +9,10 @@ This repository contains a VERY unofficial extension to the VSphereComputeProvid
 **Applicable to:** ServiceNow Instances running Jakarta, Kingston, or London and have the Cloud Management Platform application installed (requested via HI and licensed per node. Contact your account manager for complete information regarding financial impact of enabling paid plugins).
 
 **The Additional Operations Are:**
-- Stop (not previsouly functional in the baseline)
+- Stop (not previously functional in the baseline)
 - Suspend (not new but now using REST)
 - Start (not new but now using REST)
-- Reboot (not previsouly functional in the baseline)
+- Reboot (not previously functional in the baseline)
 - AdjustCPU
 - AdjustMemory
 
