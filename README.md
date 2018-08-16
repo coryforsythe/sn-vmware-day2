@@ -2,6 +2,8 @@
 
 This repository contains a VERY unofficial extension to the VSphereComputeProvider resource block and a new REST API Implementation that provides additional Day2 operations for VMWare virtual machines built from the Virtual Server Resource Block.
 
+**Applicable to:** ServiceNow Instances running Jakarta, Kingston, or London and have the Cloud Management Platform application installed (requested via HI and licensed per node. Contact your account manager for complete information regarding financial impact of enabling paid plugins).
+
 **The Additional Operations Are:**
 - Stop (not previsouly functional in the baseline)
 - Suspend (not new but now using REST)
