@@ -23,7 +23,7 @@ Note that you will now have new catalog items published for the Virtual Machine 
 
 # Usage
 
-## Create a Blueprunt
+## Create a Blueprint
 Construct a new BluePrint utilizing the VSphere and Virtual Machine resource blocks
 ![Image of Blueprint](https://raw.githubusercontent.com/coryforsythe/sn-vmware-day2/master/imgs/bp.png)
 
