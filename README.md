@@ -17,7 +17,7 @@ This repository contains a VERY unofficial extension to the VSphereComputeProvid
 - AdjustMemory
 
 # Installation
-Clone this repo down to the Studio application and apply it to your instance
+Clone your repo (created from the realease branch/zip) down to the Studio application and apply it to your instance
 
 Note that you will now have new catalog items published for the Virtual Machine Resource Block for AdjustCPU and AdjustMemory.  Though operations exist for the others, no catalog items are published. You may choose to do so later.
 
