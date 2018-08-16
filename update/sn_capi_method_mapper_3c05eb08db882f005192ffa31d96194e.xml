@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_capi_method_mapper">
+    <sn_capi_method_mapper action="INSERT_OR_UPDATE">
+        <capi_interface_operation display_value="StopVM">2a242308db882f005192ffa31d96196e</capi_interface_operation>
+        <cloud_api display_value="VCenter Extensions API">bc05eb08db882f005192ffa31d961942</cloud_api>
+        <endpoint_operation display_value="ExecuteScript">48ceec0f0b1322003969a387b6673a87</endpoint_operation>
+        <is_execute_script_on_instance>false</is_execute_script_on_instance>
+        <request_script>7c05eb08db882f005192ffa31d96194c</request_script>
+        <script_table>ecc_agent_script_include</script_table>
+        <script_type>JS</script_type>
+        <supported_in_version>1.0</supported_in_version>
+        <sys_class_name>sn_capi_method_mapper</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-16 11:16:43</sys_created_on>
+        <sys_id>3c05eb08db882f005192ffa31d96194e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>2a242308db882f005192ffa31d96196e</sys_name>
+        <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+        <sys_update_name>sn_capi_method_mapper_3c05eb08db882f005192ffa31d96194e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-16 11:16:43</sys_updated_on>
+    </sn_capi_method_mapper>
+</record_update>

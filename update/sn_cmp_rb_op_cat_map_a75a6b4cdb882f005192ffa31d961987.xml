@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_cmp_rb_op_cat_map">
+    <sn_cmp_rb_op_cat_map action="INSERT_OR_UPDATE">
+        <cat_item display_value="Virtual Server-Extensions-Virtual Server Interface Extension-AdjustCPU">575ae34cdb882f005192ffa31d96195d</cat_item>
+        <operation display_value="AdjustCPU">15c9eb0cdb882f005192ffa31d9619e7</operation>
+        <resource_block display_value="Virtual Server">6a4a735e0be622009e620bcb15673a04</resource_block>
+        <sys_class_name>sn_cmp_rb_op_cat_map</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-16 11:40:08</sys_created_on>
+        <sys_id>a75a6b4cdb882f005192ffa31d961987</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>6a4a735e0be622009e620bcb15673a04</sys_name>
+        <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+        <sys_update_name>sn_cmp_rb_op_cat_map_a75a6b4cdb882f005192ffa31d961987</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-16 11:40:08</sys_updated_on>
+    </sn_cmp_rb_op_cat_map>
+</record_update>

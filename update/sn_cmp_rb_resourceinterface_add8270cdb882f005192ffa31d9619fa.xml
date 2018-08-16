@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_cmp_rb_resourceinterface">
+    <sn_cmp_rb_resourceinterface action="INSERT_OR_UPDATE">
+        <extends_from display_value="Virtual Server Interface">ee4a735e0be622009e620bcb15673a02</extends_from>
+        <is_system_defined>false</is_system_defined>
+        <name>Extensions-Virtual Server Interface Extension</name>
+        <sys_class_name>sn_cmp_rb_resourceinterface</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-16 11:33:26</sys_created_on>
+        <sys_id>add8270cdb882f005192ffa31d9619fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Extensions-Virtual Server Interface Extension</sys_name>
+        <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+        <sys_update_name>sn_cmp_rb_resourceinterface_add8270cdb882f005192ffa31d9619fa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-16 11:33:26</sys_updated_on>
+        <type>Extension</type>
+    </sn_cmp_rb_resourceinterface>
+</record_update>

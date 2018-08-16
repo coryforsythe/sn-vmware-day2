@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_cmp_vm_d2ops.CMPVCenterEndpointUtil</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>CMPVCenterEndpointUtil</name>
+        <script><![CDATA[var CMPVCenterEndpointUtil = Class.create();
+CMPVCenterEndpointUtil.prototype = {
+    initialize: function() {
+    },
+	
+	getHostForVM:function(vmInstanceSysId){
+		
+		var relTab=new GlideRecord('cmdb_rel_ci');
+		relTab.addQuery('parent',vmInstanceSysId);
+		relTab.addQuery('type','5f985e0ec0a8010e00a9714f2a172815');
+
+		relTab.query();
+		if(relTab.next())
+		{
+			var childRec=relTab.getValue('child');
+			var dcTab=new GlideRecord('cmdb_ci_logical_datacenter');
+			if(dcTab.get(childRec)){
+				
+				var sdkURL= dcTab.getValue('datacenter_url');
+				var pattern= /(http)(s?):\/\/(.*)\/sdk/;
+				var matches = sdkURL.match(pattern);
+				if(matches!=null){
+					return matches[3];
+				}
+				else{
+					throw "CMPVCenterEndpointUtil -> Could not parse the logical datacenter url";
+				}
+			}
+			else{
+				throw "CMPVCenterEndpointUtil -> Related record was not a logical datacenter";
+			}
+		}
+		else{
+			throw "CMPVCenterEndpointUtil -> Could not find a hosting relationship for the given ci";
+		}
+
+	},
+
+    type: 'CMPVCenterEndpointUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-16 11:35:19</sys_created_on>
+        <sys_id>6339eb0cdb882f005192ffa31d9619b8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CMPVCenterEndpointUtil</sys_name>
+        <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+        <sys_update_name>sys_script_include_6339eb0cdb882f005192ffa31d9619b8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-16 11:35:19</sys_updated_on>
+    </sys_script_include>
+</record_update>

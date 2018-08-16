@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_cmp_rb_op_impl_param">
+    <sn_cmp_rb_op_impl_param action="INSERT_OR_UPDATE">
+        <applicable_to/>
+        <datasource>1</datasource>
+        <datasourcevalue/>
+        <defaultvalue>${parameter.NodeName}</defaultvalue>
+        <error_text/>
+        <help_text/>
+        <host/>
+        <ismandatory>false</ismandatory>
+        <name>NodeName</name>
+        <operation display_value="Reboot">dd76a788db882f005192ffa31d96194d</operation>
+        <order>1000</order>
+        <read_only>false</read_only>
+        <regex/>
+        <sys_class_name>sn_cmp_rb_op_impl_param</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-16 11:23:04</sys_created_on>
+        <sys_id>fd762b88db882f005192ffa31d9619c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>NodeName</sys_name>
+        <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+        <sys_update_name>sn_cmp_rb_op_impl_param_fd762b88db882f005192ffa31d9619c1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-16 11:23:04</sys_updated_on>
+        <ui_data_type/>
+        <value/>
+        <visibilty>false</visibilty>
+    </sn_cmp_rb_op_impl_param>
+</record_update>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_cmp_rb_op_impl_step">
+    <sn_cmp_rb_op_impl_step action="INSERT_OR_UPDATE">
+        <capi_interface/>
+        <capi_method/>
+        <capi_version/>
+        <condition/>
+        <depends_on/>
+        <enabled>true</enabled>
+        <force_async>false</force_async>
+        <interface display_value="Extensions-Compute Interface Extension">1d76a788db882f005192ffa31d961947</interface>
+        <interface_operation display_value="StartVM">13c76bc8db882f005192ffa31d96192c</interface_operation>
+        <name>Extensions-Compute Interface Extension.StartVM</name>
+        <operationimpl display_value="Start">306a3bde0be622009e620bcb15673acd</operationimpl>
+        <order>0</order>
+        <owner_type>2</owner_type>
+        <parent_step/>
+        <parentstep/>
+        <product_type/>
+        <provider/>
+        <provider_type/>
+        <sys_class_name>sn_cmp_rb_op_impl_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-16 11:33:59</sys_created_on>
+        <sys_id>edf8630cdb882f005192ffa31d961979</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Extensions-Compute Interface Extension.StartVM</sys_name>
+        <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+        <sys_update_name>sn_cmp_rb_op_impl_step_edf8630cdb882f005192ffa31d961979</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-16 11:33:59</sys_updated_on>
+    </sn_cmp_rb_op_impl_step>
+</record_update>

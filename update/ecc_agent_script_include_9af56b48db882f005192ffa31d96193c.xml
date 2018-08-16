@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="ecc_agent_script_include">
+    <ecc_agent_script_include action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <name>VCenterAPIBase</name>
+        <script><![CDATA[var VCenterAPIBase = Class.create();
+VCenterAPIBase.prototype = Object.extendsObject(CloudAPIBase, {
+	Properties: Packages.java.util.Properties,
+	xmlHelper: new XMLHelper(),
+	service: '',
+	apiVersion: '',
+	
+	/**
+	 * Parameters and headers are expected to come from the exchange from the blueprint
+	 * orchestrator on the instance side.
+	 */
+	initialize: function(parameters, headers) {
+		CloudAPIBase.prototype.initialize.call(this);
+		this.parameters = parameters;
+		this.headers = headers;
+		this.VMObjectId=this.parameters.get('VMObjectId');
+		this.VCenterObjectId=this.parameters.get('VCenterObjectId');
+
+	},
+
+  _getCredentials:function(){
+    var ret= { username: this.parameters.get('Identity'), password: this.parameters.get('Password')};
+    return ret;
+  },
+	
+_getToken:function(){
+	try{
+		var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+	    var credentials = this._getCredentials();
+      var res=invoker.invokePost("https://"+this.VCenterObjectId+"/rest/com/vmware/cis/session",{},credentials);
+      var token= JSON.parse(res).value;
+			return token;
+	}
+	catch(err){
+		throw "Error getting VCenter Session Token: "+err;
+	}
+},
+
+  GetVM :function(){
+	//GET https://{server}/rest/vcenter/vm/{vm}
+	try{
+    	var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+	    var credentials = this._getCredentials();
+		var token=this._getToken();
+	    invoker.setCredentials(credentials.username, credentials.password);	
+        var res=invoker.invokeGet("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId,token);
+		var jsonRes=JSON.parse(res);
+		jsonRes.objectId=this.VMObjectId; //Play nice with baseline response processor Id  Engine
+	    return JSON.stringify(jsonRes);
+		
+	}
+	  catch(err){
+		  var msg="Error Getting VM Details: "+err;
+		  ms.log(msg);
+		  throw msg;
+	  }
+  },
+
+	StopVM: function(){
+		//POST https://{server}/rest/vcenter/vm/{vm}/power/stop
+		try{
+				var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+				var credentials = this._getCredentials();
+			var token=this._getToken();
+				invoker.setCredentials(credentials.username, credentials.password);	
+					var res=invoker.invokePost("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId+"/power/stop",{},null,token);
+			
+								
+	var ret={objectId:this.VMObjectId,//Play nice with baseline response processor Id  Engine
+					 result:res};
+			return ret;
+		}
+			catch(err){
+				var msg="Error Stopping VM: "+err;
+				ms.log(msg);
+				throw msg;
+			}
+	},
+	StartVM: function(){
+		//POST https://{server}/rest/vcenter/vm/{vm}/power/start
+		try{
+				var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+				var credentials = this._getCredentials();
+			var token=this._getToken();
+				invoker.setCredentials(credentials.username, credentials.password);	
+					var res=invoker.invokePost("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId+"/power/start",{},null,token);
+			
+				
+	var ret={objectId:this.VMObjectId,//Play nice with baseline response processor Id  Engine
+					 result:res};
+			return ret;
+		}
+			catch(err){
+				var msg="Error Stopping VM: "+err;
+				ms.log(msg);
+				throw msg;
+			}
+	},
+	ResetVM: function(){
+		//POST https://{server}/rest/vcenter/vm/{vm}/power/reset
+		try{
+				var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+				var credentials = this._getCredentials();
+			var token=this._getToken();
+				invoker.setCredentials(credentials.username, credentials.password);	
+					var res=invoker.invokePost("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId+"/power/reset",{},null,token);
+				var ret={objectId:this.VMObjectId,//Play nice with baseline response processor Id  Engine
+					 result:res};
+			return ret;
+		}
+			catch(err){
+				var msg="Error Resetting VM: "+err;
+				ms.log(msg);
+				throw msg;
+			}
+	},
+	SuspendVM: function(){
+		//POST https://{server}/rest/vcenter/vm/{vm}/power/suspend
+		try{
+				var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+				var credentials = this._getCredentials();
+			var token=this._getToken();
+				invoker.setCredentials(credentials.username, credentials.password);	
+					var res=invoker.invokePost("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId+"/power/suspend",{},null,token);
+									
+	var ret={objectId:this.VMObjectId,//Play nice with baseline response processor Id  Engine
+					 result:res};
+			return ret;
+		}
+			catch(err){
+				var msg="Error Suspending VM: "+err;
+				ms.log(msg);
+				throw msg;
+			}
+	},
+	AdjustCPU: function(){
+		//PATCH https://{server}/rest/vcenter/vm/{vm}/hardware/cpu
+		try{
+				var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+				var credentials = this._getCredentials();
+				var token=this._getToken();
+				var payload=JSON.stringify({"spec": {
+					"cores_per_socket": this.parameters.get('CPUCores'),
+					"count": this.parameters.get('CPUCount'),
+					"hot_add_enabled": true,
+					"hot_remove_enabled": true
+					}
+				});
+				ms.log("PAYLOAD-->"+JSON.stringify(payload));
+				invoker.setCredentials(credentials.username, credentials.password);	
+					var res=invoker.invokePatch("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId+"/hardware/cpu",
+					payload,token);
+						
+					var ret={objectId:this.VMObjectId,//Play nice with baseline response processor Id  Engine
+					 result:res};
+			
+			return ret;
+		}
+			catch(err){
+				var msg="Error Adjusting CPU for VM: "+err;
+				ms.log(msg);
+				throw msg;
+			}
+	},
+	AdjustMemory: function(){
+		//PATCH https://{server}/rest/vcenter/vm/{vm}/hardware/memory
+		try{
+				var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+				var credentials = this._getCredentials();
+				var token=this._getToken();
+				var payload=JSON.stringify({
+					"spec": {
+						"hot_add_enabled": true,
+						"size_MiB": Number(this.parameters.get('MemoryMIb'))
+					}
+				});
+				ms.log("PAYLOAD-->"+JSON.stringify(payload));
+				invoker.setCredentials(credentials.username, credentials.password);	
+					var res=invoker.invokePatch("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId+"/hardware/memory",
+					payload,token);
+				
+			var ret={objectId:this.VMObjectId,//Play nice with baseline response processor Id  Engine
+					 result:res};
+			
+			return ret;
+		}
+			catch(err){
+				var msg="Error Adjusting Memory for VM: "+err;
+				ms.log(msg);
+				throw msg;
+			}
+	},
+	
+	type: 'VCenterAPIBase'
+});]]></script>
+        <sys_class_name>ecc_agent_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-16 11:21:02</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9af56b48db882f005192ffa31d96193c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>VCenterAPIBase</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+        <sys_update_name>ecc_agent_script_include_9af56b48db882f005192ffa31d96193c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-16 11:21:02</sys_updated_on>
+    </ecc_agent_script_include>
+</record_update>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_cmp_rb_keyvalue">
+    <sn_cmp_rb_keyvalue action="INSERT_OR_UPDATE">
+        <action/>
+        <key>CPUCount</key>
+        <object_mapping>false</object_mapping>
+        <owner_instance/>
+        <owner_table/>
+        <step display_value="VCenter Extension Interface.AdjustCPU">e4e62f88db882f005192ffa31d9619c1</step>
+        <sys_class_name>sn_cmp_rb_keyvalue</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-16 11:24:54</sys_created_on>
+        <sys_id>2ce6af88db882f005192ffa31d96193d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CPUCount</sys_name>
+        <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+        <sys_update_name>sn_cmp_rb_keyvalue_2ce6af88db882f005192ffa31d96193d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-16 11:24:54</sys_updated_on>
+        <value>${parameter.CPUCount}</value>
+    </sn_cmp_rb_keyvalue>
+</record_update>
