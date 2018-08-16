@@ -1,5 +1,5 @@
 # IMPORTANT STUDIO NOTE
-> ServiceNow Studio does not play nice with remote updates to Repos. Updating this readme.md for example, corrupts the repo.  To import this applicaiton to studio, please checkout a specific branch other than Master. Currently [2018-08-16-TESTED](https://github.com/coryforsythe/sn-vmware-day2/tree/2018-08-16-TESTED) is the current branch.
+> ServiceNow Studio does not play nice with remote updates to Repos. Updating this readme.md for example, corrupts the repo.  To import this application to studio, I would reccomend that you download the [ZIP File realease](https://github.com/coryforsythe/sn-vmware-day2/archive/2018-08-16-TESTED.zip) and upload it to a new GitHub Repository. You may then connect your ServiceNow Studio to this application and begin working with it locally.  
 
 
 # ServiceNow VMware Day 2 Operations
