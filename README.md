@@ -18,5 +18,30 @@ Clone this repo down to the Studio application and apply it to your instance
 Note that you will now have new catalog items published for the Virtual Machine Resource Block for AdjustCPU and AdjustMemory.  Though operations exist for the others, no catalog items are published. You may choose to do so later.
 
 # Usage
+
+## Create a Blueprunt
 Construct a new BluePrint utilizing the VSphere and Virtual Machine resource blocks
 ![Image of Blueprint](https://raw.githubusercontent.com/coryforsythe/sn-vmware-day2/master/imgs/bp.png)
+
+## Request a VM
+Complete a request to provision a new VM from your newly created blueprint and navigate to the completed stakc
+![Image of Stack](https://raw.githubusercontent.com/coryforsythe/sn-vmware-day2/master/imgs/stack.png)
+
+## Note new Operations for the VM
+Note that the activities combo-box control now contains activities for AdjustCPU and AdjustMemory (note: you may need to click on the VM resouce if the Stack is selected)
+![Image of Activities](https://raw.githubusercontent.com/coryforsythe/sn-vmware-day2/master/imgs/ativities.png)
+
+## Request the Operation
+Ensure the VM is stopped, then try adjusting the memory and note the two API Operations invoked. The first Adjusts the Memory for the VM and the second describes the VM so that the CMDB can be updated
+![Image of Operations](https://raw.githubusercontent.com/coryforsythe/sn-vmware-day2/master/imgs/ops.png)
+
+Note the operation is also reflected in VMware. The inventory data should match the CMDB. In this example, the memory was adjusted to  1024MiB
+
+![Image of Proof](https://raw.githubusercontent.com/coryforsythe/sn-vmware-day2/master/imgs/proof.png)
+
+
+
+
+
+
+
