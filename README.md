@@ -1,3 +1,7 @@
+#IMPORTANT STUDIO NOTE
+> ServiceNow Studio does not play nice with remote updates to Repos. Updating this readme.md for example, corrupts the repo.  To import this applicaiton to studio, please checkout a specific branch other than Master. Currently (2018-08-16-TESTED) [https://github.com/coryforsythe/sn-vmware-day2/tree/2018-08-16-TESTED] is the current branch.
+
+
 # ServiceNow VMware Day 2 Operations
 
 This repository contains a VERY unofficial extension to the VSphereComputeProvider resource block and a new REST API Implementation that provides additional Day2 operations for VMWare virtual machines built from the Virtual Server Resource Block.
