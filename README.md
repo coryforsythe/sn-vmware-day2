@@ -28,7 +28,7 @@ Construct a new BluePrint utilizing the VSphere and Virtual Machine resource blo
 ![Image of Blueprint](https://raw.githubusercontent.com/coryforsythe/sn-vmware-day2/master/imgs/bp.png)
 
 ## Request a VM
-Complete a request to provision a new VM from your newly created blueprint and navigate to the completed stakc
+Complete a request to provision a new VM from your newly created blueprint and navigate to the completed stack
 ![Image of Stack](https://raw.githubusercontent.com/coryforsythe/sn-vmware-day2/master/imgs/stack.png)
 
 ## Note new Operations for the VM
