@@ -29,7 +29,7 @@ Complete a request to provision a new VM from your newly created blueprint and n
 
 ## Note new Operations for the VM
 Note that the activities combo-box control now contains activities for AdjustCPU and AdjustMemory (note: you may need to click on the VM resouce if the Stack is selected)
-![Image of Activities](https://raw.githubusercontent.com/coryforsythe/sn-vmware-day2/master/imgs/ativities.png)
+![Image of Activities](https://raw.githubusercontent.com/coryforsythe/sn-vmware-day2/master/imgs/activities.png)
 
 ## Request the Operation
 Ensure the VM is stopped, then try adjusting the memory and note the two API Operations invoked. The first Adjusts the Memory for the VM and the second describes the VM so that the CMDB can be updated
