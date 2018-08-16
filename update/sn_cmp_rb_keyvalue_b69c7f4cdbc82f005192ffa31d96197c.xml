@@ -5,19 +5,19 @@
         <object_mapping>false</object_mapping>
         <owner_instance/>
         <owner_table/>
-        <step display_value="VCenter Extension Interface.SuspendVM">5fa9eb0cdb882f005192ffa31d96199e</step>
+        <step display_value="Extensions-Compute Interface Extension.StartVM">329c7f4cdbc82f005192ffa31d961977</step>
         <sys_class_name>sn_cmp_rb_keyvalue</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2018-08-16 11:37:07</sys_created_on>
-        <sys_id>23a9634cdb882f005192ffa31d961921</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_created_on>2018-08-16 12:59:48</sys_created_on>
+        <sys_id>b69c7f4cdbc82f005192ffa31d96197c</sys_id>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>VCenterObjectId</sys_name>
         <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
         <sys_policy/>
         <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
-        <sys_update_name>sn_cmp_rb_keyvalue_23a9634cdb882f005192ffa31d961921</sys_update_name>
+        <sys_update_name>sn_cmp_rb_keyvalue_b69c7f4cdbc82f005192ffa31d96197c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-08-16 12:59:28</sys_updated_on>
+        <sys_updated_on>2018-08-16 13:46:13</sys_updated_on>
         <value>$(Script:x_snc_cmp_vm_d2ops.CMPVCenterEndpointUtil.getHostForVM[arg=${Stack.items[Virtual Server].attributes[sys_id]}])</value>
     </sn_cmp_rb_keyvalue>
 </record_update>
