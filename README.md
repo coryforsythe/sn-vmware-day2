@@ -14,6 +14,8 @@ This repository contains a VERY unofficial extension to the VSphereComputeProvid
 - Reboot (not previously functional in the baseline)
 - AdjustCPU
 - AdjustMemory
+- CreateVolume
+- DeleteVolume (user experience needs work see [Issue 2](https://github.com/coryforsythe/sn-vmware-day2/issues/2)
 
 # Installation
 Clone your repo (created from the release branch/zip) down to the Studio application and apply it to your instance
