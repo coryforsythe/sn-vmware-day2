@@ -18,7 +18,9 @@ This repository contains a VERY unofficial extension to the VSphereComputeProvid
 - DeleteVolume (user experience needs work see [Issue 2](https://github.com/coryforsythe/sn-vmware-day2/issues/2)
 
 # Installation
-Clone your repo (created from the release branch/zip) down to the Studio application and apply it to your instance
+Clone this repo (or your own fork) down to the Studio application and apply it to your instance. 
+
+Swith to the dev branch
 
 Note that you will now have new catalog items published for the Virtual Machine Resource Block for AdjustCPU and AdjustMemory.  Though operations exist for the others, no catalog items are published. You may choose to do so later.
 
