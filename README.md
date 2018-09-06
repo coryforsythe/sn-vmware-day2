@@ -20,6 +20,8 @@ This repository contains a VERY unofficial extension to the VSphereComputeProvid
 # Installation
 Clone this repo (or your own fork) down to the Studio application and apply it to your instance. 
 
+> If you encounter difficulty connecting to this repo (as a result of the checksum), you may fork this repo and copy the contents of the readme.md file from the dev branch to the master branch. This should provide a valid checksum.
+
 Swith to the dev branch
 
 Note that you will now have new catalog items published for the Virtual Machine Resource Block for AdjustCPU and AdjustMemory.  Though operations exist for the others, no catalog items are published. You may choose to do so later.
