@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_cmp_rb_op_param">
+    <sn_cmp_rb_op_param action="INSERT_OR_UPDATE">
+        <interface display_value="Extensions-Virtual Server Interface Extension">add8270cdb882f005192ffa31d9619fa</interface>
+        <name>VolumeSize</name>
+        <operation display_value="CreateVolume">0e768ccbdb1c67005192ffa31d96192a</operation>
+        <order>1000</order>
+        <sys_class_name>sn_cmp_rb_op_param</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-09-06 13:02:46</sys_created_on>
+        <sys_id>faa6040fdb1c67005192ffa31d9619f3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>VolumeSize</sys_name>
+        <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+        <sys_update_name>sn_cmp_rb_op_param_faa6040fdb1c67005192ffa31d9619f3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-09-06 13:02:46</sys_updated_on>
+        <type>1</type>
+    </sn_cmp_rb_op_param>
+</record_update>

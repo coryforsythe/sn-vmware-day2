@@ -22,7 +22,9 @@ VCenterAPIBase.prototype = Object.extendsObject(CloudAPIBase, {
 		this.VCenterObjectId=this.parameters.get('VCenterObjectId');
 
 	},
-
+  _is_numeric:function(str){
+		return /^\d+$/.test(str);
+	},
   _getCredentials:function(){
     var ret= { username: this.parameters.get('Identity'), password: this.parameters.get('Password')};
     return ret;
@@ -195,7 +197,112 @@ _getToken:function(){
 				throw msg;
 			}
 	},
+	CreateVolume: function(){
+		// POST https://{server}/rest/vcenter/vm/{vm}/hardware/disk
 	
+		try{
+			var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+			var credentials = this._getCredentials();
+			var token=this._getToken();
+			var size=this.parameters.get('VolumeSize');
+			if(!this._is_numeric(size))
+				throw "volumeSize parameter value should be numeric";
+			size = 1024*1024*1024*size; //Bytes to GB
+			
+			var payload=JSON.stringify({		
+				"spec": {
+					"new_vmdk": {
+						"capacity": size
+					}
+				}
+			});
+			ms.log("PAYLOAD-->"+JSON.stringify(payload));
+			invoker.setCredentials(credentials.username, credentials.password);	
+			var res=invoker.invokePost("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId+"/hardware/disk",
+										payload,null,token);
+			
+			//res.value should contain the vdisk object id
+
+			var ret={volumeId:res.value,volumeName:res.value,//Play nice with baseline response processor Id Engine
+					 result:res};
+
+			return ret;
+		}
+		catch(err){
+			var msg="Error Creating volume for VM: "+err;
+			ms.log(msg);
+			throw msg;
+		}
+	},
+	
+	DeleteVolume: function(){
+		//DELETE https://{server}/rest/vcenter/vm/{vm}/hardware/disk/{disk}
+		try{
+			var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+			var credentials = this._getCredentials();
+			var token=this._getToken();
+			invoker.setCredentials(credentials.username, credentials.password);	
+			
+			//Get Disk Attributes prior to deletion
+			var diskRes=invoker.invokeGet("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId+"/hardware/disk/"+this.parameters.get('VolumeObjectId'),token);
+			ms.log(diskRes);
+			var jsonDiskRes=JSON.parse(diskRes);
+			
+			//Delete the disk
+			var res=invoker.invokeDelete("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId+"/hardware/disk/"+this.parameters.get('VolumeObjectId'),credentials,token);
+
+			//Return an object that CloudModel can process to reflected the deltion. (ie: terminated state)
+			var ret=[
+				{
+					backing:{vmdk_file:jsonDiskRes.value.backing.vmdk_file},
+					ObjectId:jsonDiskRes.value.backing.vmdk_file,
+					label:jsonDiskRes.value.label,
+					capacity:jsonDiskRes.value.capacity,
+					state:'terminated',
+					type:jsonDiskRes.value.type
+				}
+				];
+
+			return ret;
+		}
+		catch(err){
+			var msg="Error Deleting Volume: "+err;
+			ms.log(msg);
+			throw msg;
+		}
+	},
+	GetVolumes: function() {
+	//GET https://{server}/rest/vcenter/vm/{vm}/hardware/disk
+	try{
+		var me=this;
+    	var invoker = new VCenterRESTAPIInvoker(this.VCenterObjectId);  
+	    var credentials = this._getCredentials();
+		var token=this._getToken();
+	    invoker.setCredentials(credentials.username, credentials.password);	
+		
+		//Get list of disks
+        var res=invoker.invokeGet("https://"+this.VCenterObjectId+"/rest/vcenter/vm/"+this.VMObjectId+"/hardware/disk",token);
+		var jsonRes=JSON.parse(res);
+		var disks=[];
+		
+		//Iterate disks
+		jsonRes.value.forEach(function(diskVal){
+			var diskRes=invoker.invokeGet("https://"+me.VCenterObjectId+"/rest/vcenter/vm/"+me.VMObjectId+"/hardware/disk/"+diskVal.disk,token);
+			var jsonDiskRes=JSON.parse(diskRes);
+			jsonDiskRes.value.ObjectId=diskVal.disk; 
+			jsonDiskRes.value.state='in_use';
+			disks.push(jsonDiskRes.value);
+		});
+		
+	    return JSON.stringify(disks);
+		
+	}
+	  catch(err){
+		  var msg="Error Getting Volumes: "+err;
+		  ms.log(msg);
+		  throw msg;
+	  }
+	},
 	type: 'VCenterAPIBase'
 });]]></script>
         <sys_class_name>ecc_agent_script_include</sys_class_name>
@@ -204,7 +311,7 @@ _getToken:function(){
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9af56b48db882f005192ffa31d96193c</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>VCenterAPIBase</sys_name>
         <sys_overrides/>
         <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
@@ -212,6 +319,6 @@ _getToken:function(){
         <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
         <sys_update_name>ecc_agent_script_include_9af56b48db882f005192ffa31d96193c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-08-16 11:21:02</sys_updated_on>
+        <sys_updated_on>2018-09-06 15:31:20</sys_updated_on>
     </ecc_agent_script_include>
 </record_update>

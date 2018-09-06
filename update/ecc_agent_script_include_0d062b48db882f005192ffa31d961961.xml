@@ -66,7 +66,29 @@ VCenterRESTAPIInvoker.prototype = Object.extendsObject(CloudRESTAPIInvoker, {
 
 		}
 		
+		request.addHeader('content-type','application/json');
+
+		
 		var response = request.post(payload);
+		return this.getResponse(response);
+	},
+	invokeDelete: function(path,creds,token) {
+		this.method = 'delete';
+		this.path=path;
+		var request = this.getRequest();
+		
+		if(creds && creds!=null){
+		 	var auth = new Packages.java.lang.String(creds.username + ":" + creds.password);
+		    var encodedAuth = this.StringUtil.base64Encode(auth.getBytes());
+		    var authValue= "Basic "+new Packages.java.lang.String(encodedAuth);
+		    request.addHeader("Authorization",authValue);
+		}
+		if(token && token!=null){
+			request.addHeader('vmware-api-session-id',token);
+
+		}
+		var response=request.del(); //delete is a reserved word so Glide exhibits a scriptable 'del' method for us
+				
 		return this.getResponse(response);
 	},
 	type:'VCenterRESTAPIInvoker'
@@ -79,7 +101,7 @@ VCenterRESTAPIInvoker.prototype = Object.extendsObject(CloudRESTAPIInvoker, {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>0d062b48db882f005192ffa31d961961</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>VCenterRESTAPIInvoker</sys_name>
         <sys_overrides/>
         <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
@@ -87,6 +109,6 @@ VCenterRESTAPIInvoker.prototype = Object.extendsObject(CloudRESTAPIInvoker, {
         <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
         <sys_update_name>ecc_agent_script_include_0d062b48db882f005192ffa31d961961</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-08-16 11:21:14</sys_updated_on>
+        <sys_updated_on>2018-09-06 14:03:03</sys_updated_on>
     </ecc_agent_script_include>
 </record_update>
