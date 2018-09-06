@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="8ec84c4fdb1c67005192ffa31d961930" sys_domain="global" table="sn_cmp_rsrc_opr_cat_item" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-09-06 13:11:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c2c84c4fdb1c67005192ffa31d961934</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sn_cmp_rsrc_opr_cat_item" name="sn_cmp_rsrc_opr_cat_item" sys_domain="global" view="f5a795fceb3211003623666cd206fe19">8ec84c4fdb1c67005192ffa31d961930</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="sn_cmp_rsrc_opr_cat_item" sys_domain="global" view="f5a795fceb3211003623666cd206fe19">0ec84c4fdb1c67005192ffa31d961932</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-09-06 13:11:59</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-09-06 13:11:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>46c84c4fdb1c67005192ffa31d961936</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sn_cmp_rsrc_opr_cat_item" name="sn_cmp_rsrc_opr_cat_item" sys_domain="global" view="f5a795fceb3211003623666cd206fe19">8ec84c4fdb1c67005192ffa31d961930</sys_ui_form>
+            <sys_ui_section caption="Details" display_value="Details" name="sn_cmp_rsrc_opr_cat_item" sys_domain="global" view="f5a795fceb3211003623666cd206fe19">c6c84c4fdb1c67005192ffa31d961934</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-09-06 13:11:59</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-09-06 13:11:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c2c84c4fdb1c67005192ffa31d961938</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sn_cmp_rsrc_opr_cat_item" name="sn_cmp_rsrc_opr_cat_item" sys_domain="global" view="f5a795fceb3211003623666cd206fe19">8ec84c4fdb1c67005192ffa31d961930</sys_ui_form>
+            <sys_ui_section caption="Costs" display_value="Costs" name="sn_cmp_rsrc_opr_cat_item" sys_domain="global" view="f5a795fceb3211003623666cd206fe19">4ac84c4fdb1c67005192ffa31d961936</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-09-06 13:11:59</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>sn_cmp_rsrc_opr_cat_item</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-09-06 13:11:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8ec84c4fdb1c67005192ffa31d961930</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sn_cmp_rsrc_opr_cat_item</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+            <sys_update_name>sys_ui_form_sections_8ec84c4fdb1c67005192ffa31d961930</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-09-06 13:11:59</sys_updated_on>
+            <sys_user/>
+            <view display_value="Item Designer" name="sc_cat_item_designer">f5a795fceb3211003623666cd206fe19</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

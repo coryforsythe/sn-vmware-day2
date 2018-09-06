@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_cmp_rb_resourcescript">
+    <sn_cmp_rb_resourcescript action="INSERT_OR_UPDATE">
+        <name>Extension GetVolumes Processor</name>
+        <resource display_value="vSphere Datacenter">5cc941360b632200e937c97193673a1a</resource>
+        <script>function processResponse(response, cloudServiceAccountId, ldc, correlationId,step, requestorContext) {&#13;
+	var cloudModelString = [];&#13;
+	var volumeResponses = global.JSON.parse(response);&#13;
+	var reqContext = global.JSON.parse(requestorContext);&#13;
+	var stepObj = global.JSON.parse(step);&#13;
+&#13;
+	volumeResponses.forEach(function(volumeResponse){&#13;
+		var volume = {&#13;
+			"cmdb_ci_storage_volume": {&#13;
+				"validator": "default_storage_volume_validator",&#13;
+				"validator_overrides": { },&#13;
+				"identification": {&#13;
+					"cmdb_ci_cloud_service_account": {&#13;
+						"criterion": {&#13;
+							"object_id": cloudServiceAccountId&#13;
+						}&#13;
+					},&#13;
+					"cmdb_ci_vcenter_datacenter": {&#13;
+						"criterion": {&#13;
+							"object_id": stepObj.ldcObjectId&#13;
+						}&#13;
+					},&#13;
+					"cmdb_ci_storage_volume": {&#13;
+						"criterion": {&#13;
+							"object_id": volumeResponse.volumeId&#13;
+						}&#13;
+					}&#13;
+				},&#13;
+				"attributes": {&#13;
+					"object_id": volumeResponse.backing.vmdk_file,&#13;
+					"volume_id": volumeResponse.ObjectId,&#13;
+					"name": volumeResponse.label,&#13;
+					"total_size_gb":volumeResponse.capacity*1024*1024*1024,&#13;
+					"size_bytes":volumeResponse.capacity,&#13;
+					"storage_type":"VMware vdisk",&#13;
+					"state":volumeResponse.state,&#13;
+					"volume_type":volumeResponse.type,&#13;
+					"assigned_to":reqContext.userId,&#13;
+					"assignment_group":reqContext.groupId&#13;
+				}&#13;
+			}&#13;
+		};&#13;
+		cloudModelString.push(volume);&#13;
+	});&#13;
+	&#13;
+	return global.JSON.stringify(cloudModelString);&#13;
+}</script>
+        <script_js><![CDATA[function processResponse(response, cloudServiceAccountId, ldc, correlationId,step, requestorContext) {
+	var cloudModelString = [];
+	var volumeResponses = global.JSON.parse(response);
+	var reqContext = global.JSON.parse(requestorContext);
+	var stepObj = global.JSON.parse(step);
+
+	volumeResponses.forEach(function(volumeResponse){
+		var volume = {
+			"cmdb_ci_storage_volume": {
+				"validator": "default_storage_volume_validator",
+				"validator_overrides": { },
+				"identification": {
+					"cmdb_ci_cloud_service_account": {
+						"criterion": {
+							"object_id": cloudServiceAccountId
+						}
+					},
+					"cmdb_ci_vcenter_datacenter": {
+						"criterion": {
+							"object_id": stepObj.ldcObjectId
+						}
+					},
+					"cmdb_ci_storage_volume": {
+						"criterion": {
+							"object_id": volumeResponse.volumeId
+						}
+					}
+				},
+				"attributes": {
+					"object_id": volumeResponse.backing.vmdk_file,
+					"volume_id": volumeResponse.ObjectId,
+					"name": volumeResponse.label,
+					"total_size_gb":volumeResponse.capacity*1024*1024*1024,
+					"size_bytes":volumeResponse.capacity,
+					"storage_type":"VMware vdisk",
+					"state":volumeResponse.state,
+					"volume_type":volumeResponse.type,
+					"assigned_to":reqContext.userId,
+					"assignment_group":reqContext.groupId
+				}
+			}
+		};
+		cloudModelString.push(volume);
+	});
+	
+	return global.JSON.stringify(cloudModelString);
+}]]></script_js>
+        <sys_class_name>sn_cmp_rb_resourcescript</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-09-06 14:27:04</sys_created_on>
+        <sys_id>cbe9184fdb5c67005192ffa31d961921</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Extension GetVolumes Processor</sys_name>
+        <sys_package display_value="CMP VMware Day2 Operations" source="x_snc_cmp_vm_d2ops">c29267c0db882f005192ffa31d9619df</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CMP VMware Day2 Operations">c29267c0db882f005192ffa31d9619df</sys_scope>
+        <sys_update_name>sn_cmp_rb_resourcescript_cbe9184fdb5c67005192ffa31d961921</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-09-06 15:18:24</sys_updated_on>
+        <type>7</type>
+    </sn_cmp_rb_resourcescript>
+</record_update>
