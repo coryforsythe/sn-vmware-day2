@@ -1,5 +1,5 @@
 # IMPORTANT STUDIO NOTE
-> ServiceNow Studio does not play nice with remote updates to Repos. Updating this readme.md for example, corrupts the repo.  To import this application to studio, I would reccomend that you connect your ServiceNow Studio to this repository and work only from the **dev** branch. I will not be accepting pull requests into the MASTER.
+> ServiceNow Studio does not play nice with remote updates to Repos. Updating this readme.md for example, corrupts the repo.  To import this application to studio, I would reccomend that you connect your ServiceNow Studio to this repository and work only from the [dev](https://github.com/coryforsythe/sn-vmware-day2/tree/dev) branch. I will not be accepting pull requests into the MASTER.
 
 # ServiceNow VMware Day 2 Operations
 
